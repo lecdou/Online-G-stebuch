@@ -7,6 +7,21 @@
     height: 600px;
     margin-top: 70px;
 }
+.containerD{
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid rgb(123, 124, 121);
+    width: 1500px;
+    margin-top: 30px;
+}
+.containerDe{
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid rgb(123, 124, 121);
+    width: 1500px;
+    margin-top: 30px;
+    height: 800px;
+}
 #innercontainer {
     margin-left: auto;
     margin-right: auto;
@@ -70,3 +85,231 @@
     clear: both;
 
 }
+#left{
+    float:left;
+    width:100px;
+    box-shadow: 5px 1px 5px 5px;
+    margin-top: 10px;
+    height: 150px;
+    width: 250px;
+    margin-left: 15px;
+    border :"thick solid blue";
+}
+#right{
+    float:right;
+    width:100px;
+    box-shadow: 5px 1px 5px 5px;
+    margin-top: 10px;
+    height: 150px;
+    width:  250px;
+    margin-right: 15px;
+    
+}
+#center{
+    margin:0 auto;
+    width:100px;
+    margin-top: 10px;
+    height: 150px;
+    width: 250px;
+    box-shadow: 5px 1px 5px 5px;
+}
+#Bar{
+    background-color: rgb(238, 238, 238);
+    text-align: left; 
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    margin-top: 18px;
+    padding-left: 50px;
+    height: 80px;
+    text-shadow:0 0 black;
+    
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 60px ;
+    border: 1px solid black;
+    margin-top: 50px;
+    
+    
+  }
+  th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid black
+  }
+  tr:nth-child(even){background-color: #f2f2f2}
+  #search{ 
+    width:300px; 
+    height:50px; 
+    border-radius:25px; 
+    border: none; 
+    padding: 20px;
+    margin-left: 400px;
+    margin-top: 20px;
+  
+}
+#searchButton{
+    color: #000000; 
+    font-size: 12px; 
+    border: none; 
+    cursor: pointer;
+    padding: 10px;
+    margin-right: 10px;
+} 
+hr{
+background-color: rgb(0, 0, 255);
+margin-top: 22px;
+size:100px;
+}
+#hrKalendar{
+  background-color: rgb(0, 0, 255);
+  margin-top: 15px;
+  size:100px;
+  
+}
+
+#img1{
+    font-size: 100px;
+    padding-left: 80px;
+}
+#book{
+    font-size: 70px;
+}
+#img3{
+    font-size: 90px;
+    padding-left: 80px;
+}
+#img2{
+    font-size: 100px;
+    color: green;
+    padding-left: 80px;
+}
+p{
+    margin-left: 50px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 1px;
+    text-shadow: 0 0 black;
+}
+#styleeintrag{
+       margin-left: 75px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 1px;
+        text-shadow: 0 0 black;
+    
+}
+a{
+    margin: 65px;
+}
+#eintrag{
+    width:1200px;
+    margin-left: 140px;
+    margin-right: 140px;
+    margin-top: 60px;
+    height: 280px;
+    box-shadow: 5px 1px 5px 5px;
+    background-color: rgb(163, 163, 236);
+   
+}
+#headerEintrag{
+    width: 100.3%;
+    height: 70px;
+    background-color: rgb(255, 255, 255);;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: left; 
+    padding-left: 200px;
+     
+}
+h6{
+    padding-left:40px;
+}
+#eintragp{
+    margin-left: 50px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 180px;
+    text-shadow: 0 0 black;
+    padding: 10px;
+}
+.button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 30px;
+    width: 200px;
+  }
+  .button1 {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 350px;
+    width: 220px;
+  }
+  .button2 {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 350px;
+    width: 225px;
+  }
+  .button1 {background-color: #ff0000;} 
+  .button2 {background-color: #0fb100;} 
+  i{
+      padding-right: 30px;
+  }
+  textarea{
+      width: 800px;
+      height: 170px;
+      margin-left: 350px;
+
+  }
+  #inhalttext{
+      margin-left: 310px;
+      margin-right: 500px;
+      margin-top: 10px;
+  }
+  #inhalt{
+    margin-left: 350px;
+    margin-right: 350px  
+  }
+#EintragInhalt{
+    margin-left: 350px;
+}
+#EintragText{
+    margin-left: 350px;
+    margin-top:1px;
+    width: 800px;
+}
+input{
+    margin-left: 350px;
+    margin-top: 50px;
+}
+  
