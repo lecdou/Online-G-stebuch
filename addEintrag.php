@@ -12,8 +12,8 @@
                 </form>
             </div> 
               <form action="" >
-                <input  type="text" placeholder="Ersteller" name="Ersteller">
-                <input  type="datetime-local" placeholder="Datum" name="Datum">
+                <input id="Inputtext"  type="text" placeholder="Ersteller" name="Ersteller">
+                <input id="Inputtext" type="datetime-local" placeholder="Datum" name="Datum">
               </form>
            <h3 id="EintragInhalt">Titel</h3>
            <form action="" >
