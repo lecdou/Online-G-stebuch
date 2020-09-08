@@ -33,8 +33,7 @@
     <div id="innercontainer3" >
 
     <img src="https://img.icons8.com/ios/40/000000/lock.png"/>
-     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   
-           schon registriert ? anmelden  </img>  
+    <a class ="reg" href="login.php">hier anmelden </a></img>  
     </div>
   </div>
   </body>

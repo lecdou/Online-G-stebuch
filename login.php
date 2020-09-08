@@ -28,8 +28,7 @@
     <div id="innercontainer2" >
 
     <img src="https://img.icons8.com/metro/48/000000/add-user-male.png"/> 
-        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   
-            neu ? hier registrieren  </img>  
+      <a class ="reg" href="Registrierung.php">hier registrieren </a></img>  
     </div>
   </div>
   </body>
