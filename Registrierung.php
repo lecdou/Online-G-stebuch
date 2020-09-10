@@ -1,5 +1,6 @@
 <?php require_once './header1.php' ?>;
-  <body>
+<title> Registrierung Seite </title> 
+<body>
        <div class ="container"> 
            <div id="header"> 
               <h3> GÄSTE-BUCH </h3>
@@ -21,8 +22,8 @@
     </div>
     <div class="form-group">
       <i class="glyphicon glyphicon-asterisk"></i>
-      <label for="pwd">repeat Password</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+      <label for="pwd2">repeat Password</label>
+      <input type="password" class="form-control" id="pwd2" placeholder="Enter password" name="pwd">
     </div>
                 </form>
                 <div id="footer"> 
@@ -32,7 +33,7 @@
 
     <div id="innercontainer3" >
 
-    <img src="https://img.icons8.com/ios/40/000000/lock.png"/>
+    <img src="https://img.icons8.com/ios/40/000000/lock.png"  alt=" Image für Registrierung "/>
     <a class ="reg" href="login.php">hier anmelden </a></img>  
     </div>
   </div>

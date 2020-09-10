@@ -1,26 +1,33 @@
 <?php require_once './header1.php' ?>;
-  <body>
+<title> Add Eintrag </title>
+<body>
+  
  <div class ="containerDe"> 
  <?php require_once './header3.php' ?> 
           <div id="Bar"> 
               <h3>Einträge einfügen</h3>
                 <form action="" >
+                <label class="searchB" for="search">Suche</label>
                 <input id="search" type="text" placeholder="Search.." name="search2">
                 <button id="searchButton" type="submit">
                   <i class="fa fa-search" style="font-size: 18px;"></i>
                 </button>
-                </form>
+                </form>  
             </div> 
               <form action="" >
-                <input id="Inputtext"  type="text" placeholder="Ersteller" name="Ersteller">
-                <input id="Inputtext" type="datetime-local" placeholder="Datum" name="Datum">
+                <label class="Ersteller" for="Ersteller">Ersteller</label>
+                <input class= "Inputtext"  type="text" id ="Ersteller" placeholder="Ersteller" name="Ersteller">
+                <label class = "Datum" for="Datum">Datum</label>
+                <input  type="datetime-local" id="Datum" placeholder="Datum" name="Datum">
+
               </form>
-           <h3 id="EintragInhalt">Titel</h3>
+           
            <form action="" >
+           <label class="EintragInhalt" for="EintragText">Titel</label>
            <input id="EintragText" type="text" placeholder="Titel" name="Titel">
            <form>
-           <h3 id="EintragInhalt">Inhalt</h3>
-            <textarea name="text area" id="" cols="30" rows="10">Type hier.....
+           <label class="EintragInhalt1" for="EintragArea">Inhalt</label>
+            <textarea name="text area" type="text" id="EintragArea" cols="30" rows="10">Type hier.....
             </textarea> 
             
             <button class="button1 button1"> Abbrechen</button>
@@ -29,6 +36,5 @@
 </div>
 </div> 
 
-          
-  </body>
+</body>
   <?php require_once './header2.php' ?>;

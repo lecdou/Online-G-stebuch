@@ -1,5 +1,6 @@
 <?php require_once './header1.php' ?>;
-  <body>
+<title> Login Seite</title>
+<body>
        <div class ="container"> 
            <div id="header"> 
               <h3> GÄSTE-BUCH </h3>
@@ -27,7 +28,7 @@
 
     <div id="innercontainer2" >
 
-    <img src="https://img.icons8.com/metro/48/000000/add-user-male.png"/> 
+    <img src="https://img.icons8.com/metro/48/000000/add-user-male.png" alt=" Image für Anmeldung "/> 
       <a class ="reg" href="Registrierung.php">hier registrieren </a></img>  
     </div>
   </div>

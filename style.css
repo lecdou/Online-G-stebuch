@@ -13,6 +13,7 @@
     border: 2px solid rgb(123, 124, 121);
     width: 1500px;
     margin-top: 30px;
+    height: 800px;
 }
 .containerDe{
     margin-left: auto;
@@ -42,7 +43,7 @@
     margin-left: auto;
     margin-right: auto;
     border: 1px solid rgb(123, 124, 121);
-    width: 300px;
+    width: 200px;
     height:53px;
     margin-top: 50px;
 }
@@ -50,7 +51,7 @@
     margin-left: auto;
     margin-right: auto;
     border: 1px solid rgb(123, 124, 121);
-    width: 300px;
+    width: 200px;
     height:53px;
     margin-top: 30px;
 }
@@ -148,7 +149,7 @@ table {
     border-radius:25px; 
     border: none; 
     padding: 20px;
-    margin-left: 400px;
+    margin-left: 50px;
     margin-top: 20px;
   
 }
@@ -198,7 +199,7 @@ p{
     text-shadow: 0 0 black;
 }
 #styleeintrag{
-       margin-left: 75px;
+        margin-left: 10px;
         text-align: center;
         display: flex;
         align-items: center;
@@ -209,6 +210,9 @@ p{
 }
 a{
     margin: 65px;
+}
+#styl{
+    margin: 89px;
 }
 .reg{
     margin: 1px;
@@ -303,16 +307,68 @@ h6{
     margin-left: 350px;
     margin-right: 350px  
   }
-#EintragInhalt{
+.EintragInhalt{
     margin-left: 350px;
+    margin-top: 40px;
+}
+.EintragInhalt1{
+    margin-left: 350px;
+    margin-top: 30px;
 }
 #EintragText{
     margin-left: 350px;
     margin-top:1px;
     width: 800px;
 }
-#Inputtext{
-    margin-left: 350px;
-    margin-top: 50px;
+.Inputtext {
+    margin-top: 50px; 
 }
+.Ersteller{
+    margin-left: 355px;
+    padding-right: 10px;
+}
+.Datum{
+    margin-left: 295px; 
+    padding-right: 10px;
+}
+.searchB{
+    margin-left: 400px;
+}
+@media (min-width: 480px) and (max-width: 780px) {
+    /* For tablets: */
+    .containerDe{
+        margin-left: auto;
+        margin-right: auto;
+        border: 2px solid rgb(123, 124, 121);
+        width: auto;
+        margin-top: 30px;
+        height: auto;
+        float: none;
+    }
+    #searchButton{
+        color: #000000; 
+        font-size: 12px; 
+        border: none; 
+        cursor: pointer;
+        float: none;
+    } 
+    
+  }
+  @media (min-width: 781px) and (max-width: 979px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+  }
+
+
   

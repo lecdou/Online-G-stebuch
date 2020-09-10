@@ -1,3 +1,4 @@
+<div class="container-sm">
 <div id="header"> 
               <h3> GÄSTE-BUCH </h3>
             </div>
@@ -14,7 +15,7 @@
             </div>
             <div id="center">
                 <i class="fa fa-plus-circle"  id="img2"></i>
-                <p id="styleeintrag">Eintrag einfügen</p>
+                <p id="styleeintrag"> <a href="addEintrag.php">Eintrag einfügen</a></p>
                 <hr>
             </div>
             
