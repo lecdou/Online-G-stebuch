@@ -1,7 +1,7 @@
-<?php require_once './header1.php' ?>;
+<?php require_once '../../Template/includes/header1.php' ?>;
 <title> Registrierung Seite </title> 
 <body>
-       <div class ="container"> 
+<div class ="container"> 
            <div id="header"> 
               <h3> GÄSTE-BUCH </h3>
             </div>
@@ -38,4 +38,4 @@
     </div>
   </div>
   </body>
-  <?php require_once './header2.php' ?>;
+  <?php require_once '../../Template/includes/header2.php' ?>;
