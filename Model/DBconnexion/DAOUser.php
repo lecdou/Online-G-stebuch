@@ -3,7 +3,7 @@
 require_once("mysqliteconnection.php");
 require_once("IDAOUser.php");
 require_once("DAO.php");
-class DAOUser  extends DAO implements IDAOuser{
+class DAOUser extends DAO implements IDAOuser{
     
     private function getPDO(){
 
@@ -36,6 +36,7 @@ class DAOUser  extends DAO implements IDAOuser{
         return $count ? true : false;
     }
     public function insertUser($email , $password){
+        
 
     }
     
