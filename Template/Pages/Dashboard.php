@@ -1,61 +1,36 @@
-<?php require_once '../../Template/includes/header1.php' ?>;
+<?php require_once '../../Template/includes/head.php' ?>;
 <title> Dashbord Seite </title>
+
 <body>
- <div class ="containerD"> 
- <?php require_once '../../Template/includes/header3.php' ?>;
- <div id="Bar"> 
-              <h3>Bucheinträge</h3>
-                <form ction="" >
-                <label class="searchB" for="search">Suche</label>
-                <input id="search" type="text" placeholder="Search.." name="search2">
-                <button id="searchButton" type="submit">
-                  <i class="fa fa-search" style="font-size: 18px;"></i>
-                </button>
-                </form>
-            </div>          
-            <div>
-              <table>
-                <tr> 
-                   <th>Ersteller</th>
-                   <th>Titel</th>
-                   <th>Erstelldatum</th>
-                   <th>Actions</th>
-                </tr>
-                <tr>
-                   <td>max@mustermannn.de</td>
-                   <td>entry1</td>
-                   <td>01.01.2010 10h00</td>
-                   <td> <a href="eintragdetails.php">details</a></td>
-                </tr>
-                <tr>
-                   <td>max@mustermannn.de</td>
-                   <td>entry2</td>
-                   <td>01.01.2010 09h00</td>
-                   <td> <a href="eintragdetails.php">details</a></td>
-                </tr>
-                <tr>
-                   <td>max@mustermannn.de</td>
-                   <td>entry3</td>
-                   <td>01.01.2010 08h00</td>
-                   <td> <a href="eintragdetails.php">details</a></td>
-                </tr><tr>
-                   <td>max@mustermannn.de</td>
-                   <td>entry2</td>
-                   <td>01.01.2010 07h00</td>
-                   <td> <a href="eintragdetails.php">details</a></td>
-                </tr>
-                <tr>
-                   <td>max@mustermannn.de</td>
-                   <td>entry3</td>
-                   <td>01.01.2010 06h00</td>
-                   <td> <a href="eintragdetails.php">details</a></td>
-                </tr>
-                
-      
-            </table>
-            </div>
-           
-</div>
-          
-  </body>
-  <?php require_once '../../Template/includes/header2.php' ?>;
+
+<?php require_once '../../Template/includes/header2.php' ?>;
+
+<main role="main" class="flex-shrink-0">
+
+  <div class="container-fluid">
+
+  <?php require_once '../../Template/includes/header3.php' ?>;
+
+<div id="row "> 
+      <h3>Bucheinträge</h3>
+      <form class="form-inline row bg-secondary p-2">
+
+
+      <div class="form-group col-md-9">
+         <label  style="text-shadow: 0 0 black; font-size: 20px;"for="search" class="form-control-plaintext col-md-4" >Suche</label>
+         <input type="text" class="form-control col-md-8" id="search" placeholder="Search...">
+      </div>
+
+      <button type="submit" class="btn btn-primary  col-md-2"><i class="fa fa-search"></i></button>
+      </form>
+</div>    
+
+   <div class="row mt-3">
+      <?php require_once '../../Template/components/_table_includes.php' ?>;  
+   </div>
+
+  </div>
+</main>
+
+<?php require_once '../../Template/includes/header2.php' ?>;       
+</body>

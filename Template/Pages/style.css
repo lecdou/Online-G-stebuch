@@ -163,14 +163,8 @@ table {
 } 
 hr{
 background-color: rgb(0, 0, 255);
-margin-top: 22px;
+margin-top: 20px;
 size:100px;
-}
-#hrKalendar{
-  background-color: rgb(0, 0, 255);
-  margin-top: 15px;
-  size:100px;
-  
 }
 
 #img1{
