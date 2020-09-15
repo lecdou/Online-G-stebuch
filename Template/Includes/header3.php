@@ -1,4 +1,4 @@
-<div class="row w-100 m-3 ">
+<div class="row m-3 mx-auto ">
 
   <div class="col-md-4 mt-4">
     <div class="card shadow border-none" style="width: 21rem; margin: 30px">

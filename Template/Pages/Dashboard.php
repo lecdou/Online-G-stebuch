@@ -1,15 +1,15 @@
-<?php require_once '../../Template/includes/head.php' ?>;
+<?php require_once '../../Template/includes/head.php' ?>
 <title> Dashbord Seite </title>
 
 <body>
 
-<?php require_once '../../Template/includes/header2.php' ?>;
+<?php require_once '../../Template/includes/header2.php' ?>
 
 <main role="main" class="flex-shrink-0">
 
   <div class="container-fluid">
 
-  <?php require_once '../../Template/includes/header3.php' ?>;
+  <?php require_once '../../Template/includes/header3.php' ?>
 
 <div id="row "> 
       <h3>Bucheinträge</h3>
@@ -26,11 +26,11 @@
 </div>    
 
    <div class="row mt-3">
-      <?php require_once '../../Template/components/_table_includes.php' ?>;  
+      <?php require_once '../../Template/components/_table_includes.php' ?>
    </div>
 
   </div>
 </main>
 
-<?php require_once '../../Template/includes/header2.php' ?>;       
+<?php require_once '../../Template/includes/header2.php' ?>      
 </body>
