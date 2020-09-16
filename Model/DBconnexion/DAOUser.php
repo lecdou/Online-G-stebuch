@@ -1,45 +1,40 @@
 <?php
+require_once($_SERVER["DOCUMENT_ROOT"]."/Online-G-stebuch/IDAOUser.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/Online-G-stebuch/Dbservice.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/Online-G-stebuch/DAO.php");
 
-require_once("mysqliteconnection.php");
-require_once("IDAOUser.php");
-require_once("DAO.php");
-class DAOUser extends DAO implements IDAOuser{
+class DAOUser extends DAO implements IDAOUser{
+
+
+    public function insertUser($email, $password)
+    {
+        if ($this->checkUserExist($email)) {
+            return -1;
+        }
+        $db = new MyDB();
+        $stmt = $db->prepare("INSERT INTO USER (ID, EMAIL,PASSWORD) VALUES (NULL, :email,:password)");
+        $stmt->bindValue(':email', $email);
+        $stmt->bindValue(':password', $password);
+
+        $result = $stmt->execute();
+        $id = $db->lastInsertId();
+        $db=NULL;
+        return $id;
+    }
     
-    private function getPDO(){
-
-        $stmt = new PDO('sqlite:bd_gb.sqlite3');
-        // Set errormode to exceptions
-        $stmt->setAttribute(
-            PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION
-        );
-
-        $this->stmt =  $stmt;
+    public function checkUserExist($email)
+    {
+        $db = new MyDB();
+        $stmt = $db->prepare("SELECT count(*)  as count FROM USER WHERE EMAIL=:email");
+        $stmt->bindValue(':email', $email);
+        $stmt->execute();
+        $row = $stmt->fetchColumn();
+        $db=NULL;
+        echo "NUMROWS = ".$row;
+        return $row > 0;
+    }
+    public function getEntity(): string{
+        return "User";
+    }
     
-    return    $stmt;
 }
-    
-    public function getEntity(){
-
-    }
-    public function checkUserExist($email ){
-        $db = $this->getPDO();
-
-        $q = $db->prepare("SELECT * FROM USERS WHERE $email = :value;");
-        
-        $q->bindParam(':value',$email);
-
-        $q->execute();
-
-        $count = $q->rowCount();
-
-        return $count ? true : false;
-    }
-    public function insertUser($email , $password){
-        
-
-    }
-    
-  
-}
-?>

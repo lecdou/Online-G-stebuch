@@ -8,11 +8,10 @@ class BookEntry
     private $userId;
     private $email;
 	public function __construct() {
-        $this->id=$id;
-        $this->titel = $titel;
-        $this->content = $content;
-        $this->date = $date;
-        $this->userId = $userId;
+        $this->id=intval($this->ID);
+        $this->date = intval($this->DATE);
+        $this->userId =  intval($this->USERID);
+
     }
     public function getId(){
 		return $this->id; 
