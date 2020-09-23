@@ -8,17 +8,17 @@ class addEintragService
     {
         $requestUtil=new RequestUtil();
         $ersteller=$requestUtil->readParameter('ersteller');
-        $Datum=$requestUtil->readParameter('datum');
         $titel=$requestUtil->readParameter('titel');
         $inhalt=$requestUtil->readParameter('content');
+        $Datum=$requestUtil->readParameter('datum');
         
         
         
-        if($ersteller==NULL || $Datum==NULL || $titel==NULL||$inhalt==NULL){
+        if($ersteller==NULL || $titel==NULL||$inhalt==NULL || $Datum==NULL){
             return -1;
         }
         $dbService = new DAOBookEntry();
      
-        return $dbService-> insertBookEntry($userid, $titel, $content, $date)
+        return $dbService-> insertBookEntry($ersteller, $titel, $inhalt, $Datum);
     }
 }

@@ -1,6 +1,4 @@
-<?
-require_once $_SERVER["DOCUMENT_ROOT"] . "../../Template/Pages/loginController.php";
-?>;
+
 
 
 <div class="row mt-5 justify-content-around">
@@ -9,7 +7,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "../../Template/Pages/loginController.p
       <div class="card-body text-center">
         <h1 class="card-title m-auto text-dark"><i class="fa fa-user fa-2x"></i></h1 >
       
-        <a href="#" class="card-link"><?php echo $LOGIN_ENTRIES->getEmail(); ?></a>
+        <a href="#" class="card-link">max@mustermann.de</a>
         <hr>
       </div>
     </div>

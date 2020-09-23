@@ -5,7 +5,9 @@ class User
 	private $password;
 	private $email;
 	public function __construct() {
-		
+		$this->password = $password;
+        $this->email = $email;
+        $this->id=$id;
     }
     public function getId(){
 		return $this->id; 

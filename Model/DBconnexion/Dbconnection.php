@@ -9,7 +9,7 @@ $createStmt = <<<EOF
       (ID INTEGER PRIMARY KEY    NOT NULL,
       TITEL           TEXT    NOT NULL,
       CONTENT         TEXT    NOT NULL,
-      DATE            TEXT   NOT NULL ,
+      DATE            TEXT    NOT NULL ,
       USERID          INT     NOT NULL);
 EOF;
 class MyDB extends PDO
