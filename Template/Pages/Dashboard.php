@@ -1,3 +1,4 @@
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/Online-G-stebuch/Template/Pages/DashboardController.php";?>
 <?php require_once '../../Template/includes/head.php' ?>
 <title> Dashbord Seite </title>
 

@@ -26,7 +26,7 @@
 
       <div id="row">
                   
-        <div class="mx-auto card shadow border-none mw-70 col-md-8" style="margin-top:40px">
+        <div class="mx-auto card shadow border-none mw-80 col-md-9" style="margin-top:40px">
           
             <div class="card-body text-center">
                 <i class="fa fa-book fa-4x" id="book"></i>
@@ -38,10 +38,10 @@
             </div>
           </div>
 
-          <div class="mx-auto col-md-4 mw-70"> 
-          <button  type="submit" class="btn btn-danger  col-md-4" style="margin:20px"> <i style="margin-right:13px" class="fa fa-trash"></i>löschen</button>
+          <div class="col-md-4 mw-100 text-center"> 
+          <button  type="submit" class="btn btn-danger  col-md-4 " style="margin:30px"> <i style="margin-right:13px" class="fa fa-trash"></i>löschen</button>
 
-          <button  type="submit" class="btn btn-success  col-md-4" style="margin:20px" ><i style="margin-right:13px" class="fa fa-pencil"></i>bearbeiten</button>
+          <button  type="submit" class="btn btn-success  col-md-4" style="margin:30px" ><i style="margin-right:13px" class="fa fa-pencil"></i>bearbeiten</button>
         </div>
         
       </div>

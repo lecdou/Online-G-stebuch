@@ -7,10 +7,10 @@ class addEintragService
     public function addBook()
     {
         $requestUtil=new RequestUtil();
-        $ersteller=$requestUtil->readParameter('email');
-        $Datum=$requestUtil->readParameter('Datum');
+        $ersteller=$requestUtil->readParameter('ersteller');
+        $Datum=$requestUtil->readParameter('datum');
         $titel=$requestUtil->readParameter('titel');
-        $inhalt=$requestUtil->readParameter('inhalt');
+        $inhalt=$requestUtil->readParameter('content');
         
         
         
@@ -18,8 +18,7 @@ class addEintragService
             return -1;
         }
         $dbService = new DAOBookEntry();
-
-        return $dbService->insertUser($email, $password);
-        insertBookEntry($userid, $titel, $content, $date)
+     
+        return $dbService-> insertBookEntry($userid, $titel, $content, $date)
     }
 }

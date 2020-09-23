@@ -1,6 +1,7 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"]."/Online-G-stebuch/Model/DBconnexion/Dbconnection.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/Online-G-stebuch/Model/DBInterface/IDAO.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/Online-G-stebuch/Template/Pages/User.php");
 abstract class DAO implements IDAO{
 
     public function findById($id){
@@ -13,7 +14,7 @@ abstract class DAO implements IDAO{
         $db=NULL;
         return $result;
     }
-    public function fetchAll(){
+    public function getAll(){
 
         $db = new MyDB();
         $stmt = $db->prepare("SELECT * FROM ".$this->getEntity());
@@ -37,7 +38,7 @@ abstract class DAO implements IDAO{
         return $id;
 
     }
-    abstract public function getEntity() : string;
+    abstract public function getEntity();
 
 }
 ?>

@@ -1,3 +1,4 @@
+
 <?php require_once '../../Template/includes/head.php' ?>
 <title> Login Seite </title>
 
@@ -16,23 +17,22 @@
                     <div class="text-primary"> 
                        <h3> LOGIN </h3>
                     </div>
-                <form action="">
+                <form action="loginController.php" Methode="POST">
+               
                    <div class="form-group text-left">
                      <i class="fa fa-envelope"></i>
                      <label for="email">Email</label>
                      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
                    </div>
-                </form>
-                <form action="">
-                    <div class="form-group text-left">
+                   <div class="form-group text-left">
                      <i class="fa fa-asterisk"></i>
                      <label for="pwd">Password</label>
                      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+                   </div>
+                   <div style="margin-bottom: 20px" class="text-center col-md-6 mt-6 text-success mx-auto"> 
+                     <button type="submit" class="btn btn-success  col-md-12"> Anmelden </button>
                     </div>
-                </form>
-                <div style="margin-bottom: 20px" class="text-center col-md-6 mt-6 text-success mx-auto"> 
-                  <button type="submit" class="btn btn-success  col-md-12"> Anmelden </button>
-                </div>
+               </form>
            </div>
       <img src="https://img.icons8.com/metro/48/000000/add-user-male.png" alt="Image für Anmeldung "/> 
       <a class ="reg" href="Registrierung.php"> Neu? hier registrieren </a></img>  

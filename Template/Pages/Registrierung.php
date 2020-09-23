@@ -16,30 +16,30 @@
                     <div class="text-primary"> 
                        <h3> Registrieren </h3>
                     </div>
-                <form action="">
+                <form action="RequestController.php" Methode="POST">
                    <div class="form-group text-left">
                      <i class="fa fa-envelope"></i>
                      <label for="email">Email</label>
                      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
                    </div>
-                </form>
-                <form action="">
+                
                     <div class="form-group text-left">
                      <i class="fa fa-asterisk"></i>
                      <label for="pwd">Password</label>
                      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
                     </div>
-                </form>
-                <form action="">
+                
                      <div class="form-group text-left">
                      <i class="fa fa-asterisk"></i>
                      <label for="pwd2">repeat Password</label>
                      <input type="password" class="form-control" id="pwd2" placeholder="Enter password" name="pwd">
                      </div>
+                
+                     <div style="margin-bottom: 20px" class="text-center col-md-6 mt-6 text-success mx-auto"> 
+                     <button type="submit" class="btn btn-success  col-md-12"> registrieren </button>
+                     </div>
+
                 </form>
-                <div style="margin-bottom: 20px" class="text-center col-md-6 mt-6 text-success mx-auto"> 
-                  <button type="submit" class="btn btn-success  col-md-12"> registrieren </button>
-                </div>
            </div>
            <img src="https://img.icons8.com/ios/40/000000/lock.png"  alt=" Image für Registrierung "/>
            <a class ="reg" href="login.php">Schon registriert? hier anmelden </a></img> 

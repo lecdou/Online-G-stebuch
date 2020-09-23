@@ -2,21 +2,24 @@
 require_once  "../../Template/Services/RequestUtil.php";
 require_once  "../../Model/DBconnexion/DAOuser.php";
 
-class UserService
+class loginService
 {
-    public function createUser()
+    public function checkUser()
     {
         $requestUtil=new RequestUtil();
         $email=$requestUtil->readParameter('email');
         $password=$requestUtil->readParameter('pwd');
-        $password2=$requestUtil->readParameter('pwd');
-        if($email==NULL || $password==NULL || $password2==NULL){
-            return -1;
-        }
         $dbService = new DAOUser();
-        
-        return $dbService->insertUser($email, password_hash($password, PASSWORD_BCRYPT));
+        $response = $dbService->checkUserExist($email,$password);
+
+        return $response;
 
     }
-    
+    public function getAll()
+    {
+        $dbService = new DAOUser();
+
+        return $dbService->getAll();
+
+    }
 }

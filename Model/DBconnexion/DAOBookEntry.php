@@ -69,7 +69,7 @@ class DAOBookEntry extends DAO implements IDAOBookEntry{
         $db=NULL;
         return $result;
     }
-    public function getEntity(): string{
+    public function getEntity(){
         return "BookEntry";
     }
 }

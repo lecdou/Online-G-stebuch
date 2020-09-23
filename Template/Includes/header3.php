@@ -1,10 +1,15 @@
+<?
+require_once $_SERVER["DOCUMENT_ROOT"] . "../../Template/Pages/loginController.php";
+?>;
+
+
 <div class="row mt-5 justify-content-around">
 
     <div class="card shadow border-none col-md-3 m-2">
       <div class="card-body text-center">
         <h1 class="card-title m-auto text-dark"><i class="fa fa-user fa-2x"></i></h1 >
       
-        <a href="#" class="card-link">max@mustermann.de</a>
+        <a href="#" class="card-link"><?php echo $LOGIN_ENTRIES->getEmail(); ?></a>
         <hr>
       </div>
     </div>

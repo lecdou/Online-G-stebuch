@@ -1,14 +1,14 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"]."/Online-G-stebuch/IDAOUser.php");
-require_once($_SERVER["DOCUMENT_ROOT"]."/Online-G-stebuch/Dbservice.php");
-require_once($_SERVER["DOCUMENT_ROOT"]."/Online-G-stebuch/DAO.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/Online-G-stebuch/Model/DBInterface/IDAOUser.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/Online-G-stebuch/Model/DBconnexion/DBconnection.php");
+require_once($_SERVER["DOCUMENT_ROOT"]."/Online-G-stebuch/Model/DBconnexion/DAO.php");
 
 class DAOUser extends DAO implements IDAOUser{
 
 
     public function insertUser($email, $password)
     {
-        if ($this->checkUserExist($email)) {
+        if ($this->checkUserExist($email, $password )) {
             return -1;
         }
         $db = new MyDB();
@@ -21,17 +21,26 @@ class DAOUser extends DAO implements IDAOUser{
         $db=NULL;
         return $id;
     }
+    public function getHashPassword($email){
+        $db = new MyDB();
+        $stmt = $db->prepare("SELECT PASSWORD FROM USER WHERE EMAIL=:email");
+        $stmt->bindValue(':email', $email);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+    }
     
-    public function checkUserExist($email)
+    public function checkUserExist($email, $password)
     {
         $db = new MyDB();
-        $stmt = $db->prepare("SELECT count(*)  as count FROM USER WHERE EMAIL=:email");
+        $stmt = $db->prepare("SELECT count(*) as count FROM USER WHERE EMAIL=:email" );
         $stmt->bindValue(':email', $email);
         $stmt->execute();
         $row = $stmt->fetchColumn();
         $db=NULL;
-        echo "NUMROWS = ".$row;
-        return $row > 0;
+        if ($row && password_verify($password,$this->getHashPassword($email))) {
+            return $row > 0;
+        }
+        return false;
     }
     public function getEntity(): string{
         return "User";

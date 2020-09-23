@@ -2,7 +2,7 @@
 
 interface IDAO{
     public function findById($id);
-    public function fectchAll();
+    public function getAll();
     public function delete($id); 
 }
 ?>

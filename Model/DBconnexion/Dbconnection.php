@@ -1,5 +1,5 @@
 <?php
-//include($_SERVER["DOCUMENT_ROOT"]."/Online-G-stebuch/NavigationFilter.php");
+define('DB_PATH',$_SERVER["DOCUMENT_ROOT"]."/Online-G-stebuch/bd_gd.sqlite3");
 $createStmt = <<<EOF
       CREATE TABLE IF NOT EXISTS USER
       (ID INTEGER PRIMARY KEY    NOT NULL,
@@ -9,14 +9,14 @@ $createStmt = <<<EOF
       (ID INTEGER PRIMARY KEY    NOT NULL,
       TITEL           TEXT    NOT NULL,
       CONTENT         TEXT    NOT NULL,
-      DATE         DATETIME   NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      DATE            TEXT   NOT NULL ,
       USERID          INT     NOT NULL);
 EOF;
 class MyDB extends PDO
 {
     public function __construct()
     {
-      parent::__construct("sqlite:bd_gb.sqlite3");
+      parent::__construct("sqlite:". DB_PATH);
       $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
