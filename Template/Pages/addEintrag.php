@@ -1,16 +1,16 @@
 
-<?php require_once '../../Template/includes/head.php' ?>;
+<?php require_once '../../Template/includes/head.php' ?>
   <title> Add Eintrag </title>
 
 <body>
 
-<?php require_once '../../Template/includes/header2.php' ?>;
+<?php require_once '../../Template/includes/header2.php' ?>
 
 <main role="main" >
 
   <div class="container-fluid">
 
-  <?php require_once '../../Template/includes/header3.php' ?>;
+  <?php require_once '../../Template/includes/header3.php' ?>
 
   <div id="row "> 
         <h3>Einträge einfügen</h3>

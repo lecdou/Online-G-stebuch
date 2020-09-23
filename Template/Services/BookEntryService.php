@@ -26,21 +26,17 @@ class BookEntryService
     {
         $requestUtil=new RequestUtil();
         $ersteller=$requestUtil->readParameter('ersteller');
-        $Datum=$requestUtil->readParameter('Datum');
         $titel=$requestUtil->readParameter('titel');
         $inhalt=$requestUtil->readParameter('content');
+        $Datum=$requestUtil->readParameter('datum');
         
-        echo $ersteller; 
-        echo  $Datum;
-        echo  $titel;
-        echo  $inhalt;
         
-        if($ersteller==NULL || $titel==NULL||$Datum==NULL||$inhalt==NULL){
+        
+        if($ersteller==NULL || $titel==NULL||$inhalt==NULL || $Datum==NULL){
             return -1;
         }
         $dbService = new DAOBookEntry();
-        
-        return $dbService-> insertBookEntry($ersteller, $titel ,$inhalt, $Datum );
-    
+     
+        return $dbService-> insertBookEntry($ersteller, $titel, $inhalt, $Datum);
     }
 }

@@ -10,7 +10,7 @@
 
    <div class="container-fluid">
 
-      <?php require_once '../../Template/includes/header3.php' ?>;
+      <?php require_once '../../Template/includes/header3.php' ?>
 
       <div id="row"> 
             <h3>Bucheinträge</h3>
@@ -28,7 +28,27 @@
       </div>    
 
       <div class="row mt-3">
-         <?php require_once '../../Template/components/_table_includes.php' ?>
+         
+      <table class="table table-striped">
+    <tr> 
+        <th>Ersteller</th>
+        <th>Titel</th>
+        <th>Erstelldatum</th>
+        <th>Actions</th>
+    </tr>
+    <?php
+                
+                foreach ($BOOK_ENTRIES as $value) {
+                  echo "<tr>";
+                  echo "<td>". $value->getTitel()."</td>";
+                  echo "<td>".$value->getContent()."</td>";
+                  echo "<td>". date("Y-m-d H:i:s", strtotime($value->getDate()))."</td>";
+                  echo "<td><a href='eintragdetails.php?id=".$value->getId()."'>details</a></td>";
+                  echo "</tr>";
+               }
+                ?>
+   
+</table>
       </div>
 
    </div>

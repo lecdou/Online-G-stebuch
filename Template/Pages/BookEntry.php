@@ -9,7 +9,10 @@ class BookEntry
     private $email;
 	public function __construct() {
         $this->id=intval($this->ID);
-        $this->date = intval($this->DATE);
+        $this->date = $this->DATE;
+        $this->content = $this->CONTENT;
+        $this->titel = $this->TITEL;
+        $this->email = $this->EMAIL;
         $this->userId =  intval($this->USERID);
 
     }

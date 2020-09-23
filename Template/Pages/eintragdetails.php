@@ -9,7 +9,7 @@
 
     <div class="container-fluid">
 
-      <?php require_once '../../Template/includes/header3.php' ?>;
+      <?php require_once '../../Template/includes/header3.php' ?>
 
       <div id="row "> 
             <h3>Bucheinträge: Entry 1 / 01.01.2010 10:00</h3>

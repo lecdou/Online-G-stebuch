@@ -1,9 +1,9 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/Online-G-stebuch/Template/Services/addEintragService.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/Online-G-stebuch/Template/Services/BookEntryService.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/Online-G-stebuch/Template/Services/RequestUtil.php";
 
-    $bookEntryService=new addEintragService();
-    $bookId = $bookEntryService->addBook();
+    $BookEntryService=new BookEntryService();
+    $bookId = $BookEntryService->addBook();
     if($bookId===-1){
        header("Location: login.php");
     }else{
