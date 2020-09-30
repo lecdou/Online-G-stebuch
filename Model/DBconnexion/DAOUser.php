@@ -38,9 +38,26 @@ class DAOUser extends DAO implements IDAOUser{
         $row = $stmt->fetchColumn();
         $db=NULL;
         if ($row && password_verify($password,$this->getHashPassword($email))) {
-            return $row > 0;
+            return array(
+                'email'  => $email,
+                'pwd'=> $password,
+                'id'=> $this->getEntity()->ID
+                
+              );
         }
         return false;
+    }
+    public function getId($email ,$password){
+
+        $db = new MyDB();
+        $stmt = $db->prepare("SELECT ID FROM USER where EMAIL=:value AND PASSWORD=:password");
+        $stmt->bindValue(':value', $email);
+        $stmt->bindValue(':password', $password);
+        $stmt->execute();
+        $result = $stmt->fetchColumn();
+        $db=NULL;
+        return $result;
+
     }
     public function getEntity(): string{
         return "User";

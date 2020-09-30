@@ -15,11 +15,14 @@ class loginService
         return $response;
 
     }
-    public function getAll()
+    public function getId()
     {
         $dbService = new DAOUser();
-
-        return $dbService->getAll();
+        $requestUtil= new RequestUtil();
+        $email = $requestUtil->readParameter('email');
+        $password = $requestUtil->readParameter('pwd');
+        return  $dbService->getId($email,$password);
 
     }
+   
 }

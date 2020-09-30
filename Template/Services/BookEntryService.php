@@ -31,7 +31,6 @@ class BookEntryService
         $Datum=$requestUtil->readParameter('datum');
         
         
-        
         if($ersteller==NULL || $titel==NULL||$inhalt==NULL || $Datum==NULL){
             return -1;
         }
