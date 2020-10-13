@@ -7,6 +7,7 @@ class BookEntry
     private $date;
     private $userId;
     private $email;
+    private $username;
 	public function __construct() {
         $this->id=intval($this->ID);
         $this->date = $this->DATE;
@@ -14,7 +15,7 @@ class BookEntry
         $this->titel = $this->TITEL;
         $this->email = $this->EMAIL;
         $this->userId =  intval($this->USERID);
-
+        $this->username = $this->USERNAME;
     }
     public function getId(){
 		return $this->id; 
@@ -34,6 +35,10 @@ class BookEntry
     public function getUserEmail()
     {
     return $this->email;
+    }
+    public function getUsername()
+    {
+    return $this->username;
     }
 
 }

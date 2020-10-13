@@ -6,13 +6,14 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/Online-G-stebuch/Model/DBconnexion/DAO.
 class DAOUser extends DAO implements IDAOUser{
 
 
-    public function insertUser($email, $password)
+    public function insertUser($username,$email, $password)
     {
-        if ($this->checkUserExist($email, $password )) {
+        if ($this->checkUserExist($username)) {
             return -1;
         }
         $db = new MyDB();
-        $stmt = $db->prepare("INSERT INTO USER (ID, EMAIL,PASSWORD) VALUES (NULL, :email,:password)");
+        $stmt = $db->prepare("INSERT INTO USER (ID, USERNAME, EMAIL, PASSWORD) VALUES (NULL,:username, :email,:password)");
+        $stmt->bindValue(':username', $username);
         $stmt->bindValue(':email', $email);
         $stmt->bindValue(':password', $password);
 
@@ -29,32 +30,25 @@ class DAOUser extends DAO implements IDAOUser{
         return $stmt->fetchColumn();
     }
     
-    public function checkUserExist($email, $password)
+    public function checkUserExist($username)
     {
         $db = new MyDB();
-        $stmt = $db->prepare("SELECT count(*) as count FROM USER WHERE EMAIL=:email" );
-        $stmt->bindValue(':email', $email);
+        $stmt = $db->prepare("SELECT count(*) as count FROM USER WHERE USERNAME=:username");
+        $stmt->bindValue(':username', $username);
         $stmt->execute();
         $row = $stmt->fetchColumn();
         $db=NULL;
-        if ($row && password_verify($password,$this->getHashPassword($email))) {
-            return array(
-                'email'  => $email,
-                'pwd'=> $password,
-                'id'=> $this->getEntity()->ID
-                
-              );
-        }
-        return false;
+        return $row;
     }
-    public function getId($email ,$password){
+    public function findUser($username,$email ,$password){
 
         $db = new MyDB();
-        $stmt = $db->prepare("SELECT ID FROM USER where EMAIL=:value AND PASSWORD=:password");
+        $stmt = $db->prepare("SELECT * FROM USER where EMAIL=:value AND PASSWORD=:password AND USERNAME=:username");
+        $stmt->bindValue(':username', $username);
         $stmt->bindValue(':value', $email);
-        $stmt->bindValue(':password', $password);
+        $stmt->bindValue(':password', md5($password));
         $stmt->execute();
-        $result = $stmt->fetchColumn();
+        $result = $stmt->fetchAll(PDO::FETCH_CLASS, "User");
         $db=NULL;
         return $result;
 

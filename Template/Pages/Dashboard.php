@@ -10,16 +10,18 @@
 <main role="main" class="flex-shrink-0">
 
    <div class="container-fluid">
-  <?php   
-session_start();
-?>
 
 <div class="row mt-5 justify-content-around">
 
     <div class="card shadow border-none col-md-3 m-2">
       <div class="card-body text-center">
-        <h1 class="card-title m-auto text-dark"><i class="fa fa-user fa-2x" ></i></h1 >
-          <?php echo $_SESSION['email']; ?>
+        <h1 class="card-title m-auto text-dark"><i class="fa fa-user fa-2x" id="user"></i></h1 >
+          <?php 
+          if (!isset($_SESSION['email'])){
+                echo " Please Click here to  log in <a href='login.php'> go to login </a>" ;
+          }else{
+                echo $_SESSION['email'];  
+                 } ?>  
         <hr>
       </div>
     </div>
@@ -65,6 +67,7 @@ session_start();
       <table class="table table-striped">
     <tr> 
         <th>Ersteller</th>
+        <th>Emails</th>
         <th>Titel</th>
         <th>Erstelldatum</th>
         <th>Actions</th>
@@ -73,14 +76,19 @@ session_start();
                 
                 foreach ($BOOK_ENTRIES as $value) {
                   echo "<tr>";
-                  echo "<td>". $value->getTitel()."</td>";
-                  echo "<td>".$value->getContent()."</td>";
+                  echo "<td>". $value->getUsername()."</td>";
+                  echo "<td>". $value->getUserEmail()."</td>";
+                  echo "<td>".$value->getTitel()."</td>";
                   echo "<td>". date("Y-m-d H:i:s", strtotime($value->getDate()))."</td>";
-                  echo "<td><a href='eintragdetails.php?id=".$value->getId()."'>details</a></td>";
+                  echo "<td> <form method='POST' action='eintragdetails.php' >
+                  <input type='hidden' class='form-control' name='Bookid'  value=' ". $value->getId()." '>
+                   <button type='submit' class='btn btn-primary'>details </button>
+                  </form> </td>";
                   echo "</tr>";
                }
-                ?>
-   
+                  ?>
+
+
 </table>
       </div>
 
@@ -89,3 +97,10 @@ session_start();
 </main>
   
 </body>
+
+<script>
+    var btn = document.getElementById('user');
+    btn.addEventListener('click', function() {
+      document.location.href = 'Dashboard.php'
+    });
+  </script>

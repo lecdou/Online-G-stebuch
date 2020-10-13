@@ -19,8 +19,7 @@ class DAOBookEntry extends DAO implements IDAOBookEntry{
         $stmt->bindValue(':userid', $userid);
         $result = $stmt->execute();
         $id = $db->lastInsertId();
-        $db=NULL;
-        return $id;
+
     }
 
     public function updateBookEntry($bookid, $titel, $content)
@@ -49,7 +48,7 @@ class DAOBookEntry extends DAO implements IDAOBookEntry{
     {
 
         $db = new MyDB();
-        $stmt = $db->prepare("SELECT b.id, b.titel,b.content,b.date,b.userid,u.email FROM BOOKENTRY b join USER u on u.id=b.userid");
+        $stmt = $db->prepare("SELECT b.id, b.titel,b.content,b.date,b.userid,u.email,u.username FROM BOOKENTRY b join USER u on u.id=b.userid");
         $stmt->execute();
        
         $result = $stmt->fetchAll(PDO::FETCH_CLASS, "BookEntry");
@@ -61,7 +60,7 @@ class DAOBookEntry extends DAO implements IDAOBookEntry{
     {
 
         $db = new MyDB();
-        $stmt = $db->prepare("SELECT b.id, b.titel,b.content,b.date,b.userid,u.email FROM BOOKENTRY b join USER u on u.id=b.userid where b.ID=:bookid");
+        $stmt = $db->prepare("SELECT b.id, b.titel,b.content,b.date,b.userid,u.email,u.username FROM BOOKENTRY b join USER u on u.id=b.userid where b.ID=:bookid");
         $stmt->bindValue(':bookid', $bookid);
         $stmt->execute();
        

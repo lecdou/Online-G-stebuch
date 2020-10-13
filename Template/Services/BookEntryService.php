@@ -4,6 +4,24 @@
 
 class BookEntryService
 {
+    public function updateBook()
+    {
+        $requestUtil=new RequestUtil();
+        $bookid=$requestUtil->readParameter('updateid');
+        $titel=$requestUtil->readParameter('titel');
+        $inhalt=$requestUtil->readParameter('content');
+
+        if ($bookid == null) {
+            return null;
+        }
+        $dbService = new DAOBookEntry();
+
+        return $dbService->updateBookEntry($bookid, $titel, $inhalt);
+
+    }
+
+
+
     public function getAll()
     {
         $dbService = new DAOBookEntry();
@@ -11,8 +29,11 @@ class BookEntryService
         return $dbService->getAll();
 
     }
-    public function findById($bookid)
+    public function findById()
     {
+        $requestUtil=new RequestUtil();
+        $bookid=$requestUtil->readParameter('Bookid');
+
 
         if ($bookid == null) {
             return null;
@@ -20,6 +41,19 @@ class BookEntryService
         $dbService = new DAOBookEntry();
 
         return $dbService->findByIdCustom($bookid);
+
+    }
+    public function deleteById()
+    {
+        $requestUtil=new RequestUtil();
+        $bookid=$requestUtil->readParameter('deleteid');
+        
+       if ($bookid == null) {
+            return null;
+        }
+        $dbService = new DAOBookEntry();
+
+        return $dbService->deleteBookEntry($bookid);
 
     }
     public function addBook()
@@ -30,12 +64,15 @@ class BookEntryService
         $inhalt=$requestUtil->readParameter('content');
         $Datum=$requestUtil->readParameter('datum');
         
-        
-        if($ersteller==NULL || $titel==NULL||$inhalt==NULL || $Datum==NULL){
+        echo $_SESSION['id']; 
+        echo $titel;
+        echo $inhalt;
+        echo $Datum;
+        if($_SESSION['id']==NULL || $titel==NULL||$inhalt==NULL){
             return -1;
         }
         $dbService = new DAOBookEntry();
      
-        return $dbService-> insertBookEntry($ersteller, $titel, $inhalt, $Datum);
+        return $dbService-> insertBookEntry($_SESSION['id'], $titel, $inhalt, $Datum);
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
 interface IDAOUser{
-    public function checkUserExist($email, $password );
-    public function insertUser($email , $password);
+    public function checkUserExist($username );
+    public function insertUser($username,$email , $password);
     
 }
 ?>

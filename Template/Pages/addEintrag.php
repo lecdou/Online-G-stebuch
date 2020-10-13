@@ -1,5 +1,6 @@
 
-<?php require_once '../../Template/includes/head.php' ?>
+<?php session_start();
+require_once '../../Template/includes/head.php' ;?>
   <title> Add Eintrag </title>
 
 <body>
@@ -10,16 +11,18 @@
 
   <div class="container-fluid">
 
-  <?php   
-session_start();
-?>
 
 <div class="row mt-5 justify-content-around">
 
     <div class="card shadow border-none col-md-3 m-2">
       <div class="card-body text-center">
-        <h1 class="card-title m-auto text-dark"><i class="fa fa-user fa-2x"></i></h1 >
-          <?php echo $_SESSION['email'] ?>
+        <h1 class="card-title m-auto text-dark"><i class="fa fa-user fa-2x" id="user"></i></h1 >
+        <?php 
+          if (!isset($_SESSION['email'])){
+                echo " Please Click here to  login <a href='login.php'> go to login </a>" ;
+          }else{
+                echo $_SESSION['email']; 
+                 } ?>  
         <hr>
       </div>
     </div>
@@ -66,13 +69,18 @@ session_start();
   <div class="form-group row m-2 mx-80 ">
     <div class="col-md-6"> 
             <label style="text-shadow: 0 0 black; font-size: 20px;" for="Ersteller">Ersteller</label>
-            <input class="form-control col-md-4 text-center"  type="number" id ="Ersteller" placeholder="Ersteller" name="ersteller">
+            <input class="form-control col-md-4 text-center" value="<?php 
+             if (!isset($_SESSION['email'])){
+                echo " Please log in first " ;
+          }else{
+                echo $_SESSION['email']; 
+                 } ?>" type="text" disabled="disabled" id ="Ersteller" placeholder="Ersteller" name="ersteller">
     </div>          
               
     <div class="col-md-6 "> 
               
                   <label style="text-shadow: 0 0 black; font-size: 20px;" class = "Datum" for="Datum">Datum</label>
-                  <input class="form-control col-md-4 text-center" type="datetime-local" id="Datum" placeholder="Datum" name="datum">
+                  <input class="form-control col-md-4 text-center" readonly="true"  value="<?php $DateAndTime = date("Y-m-d H:i:s", time()); echo $DateAndTime ?>" type="text" id="Datum" placeholder="Datum" name="datum">
             
     </div>
 
@@ -111,3 +119,9 @@ session_start();
 </main>
     
 </body>
+<script>
+    var btn = document.getElementById('user');
+    btn.addEventListener('click', function() {
+      document.location.href = 'Dashboard.php'
+    });
+  </script>

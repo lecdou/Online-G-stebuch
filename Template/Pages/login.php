@@ -18,6 +18,11 @@
                        <h3> LOGIN </h3>
                     </div>
                 <form action="loginController.php" Methode="POST">
+                   <div class="form-group text-left">
+                     <i class="fa fa-user-plus"></i>
+                     <label for="user">Username</label>
+                     <input type="text" class="form-control" id="user" placeholder="Enter Username" name="username">
+                    </div>
                
                    <div class="form-group text-left">
                      <i class="fa fa-envelope"></i>
@@ -47,4 +52,3 @@
 <?php require_once '../../Template/includes/header2.php' ?>      
 </body>
 
-  

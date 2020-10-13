@@ -9,13 +9,21 @@ class UserService
         $requestUtil=new RequestUtil();
         $email=$requestUtil->readParameter('email');
         $password=$requestUtil->readParameter('pwd');
-        $password2=$requestUtil->readParameter('pwd');
-        if($email==NULL || $password==NULL || $password2==NULL){
+        $password2=$requestUtil->readParameter('pwd2');
+        $username=$requestUtil ->readParameter('username');
+        if($email==NULL || $password==NULL || $password2==NULL || $username==NULL){
             return -1;
         }
-        $dbService = new DAOUser();
+        if($password!=$password2){
+            return -2;
+        }
         
-        return $dbService->insertUser($email, password_hash($password, PASSWORD_BCRYPT));
+        $dbService = new DAOUser();
+        if($dbService->checkUserExist($username)){
+            return 1 ;
+        }
+        
+        return $dbService->insertUser($username,$email, md5($password));
 
     }
     

@@ -9,19 +9,13 @@ class loginService
         $requestUtil=new RequestUtil();
         $email=$requestUtil->readParameter('email');
         $password=$requestUtil->readParameter('pwd');
+        $username=$requestUtil->readParameter('username');
         $dbService = new DAOUser();
-        $response = $dbService->checkUserExist($email,$password);
-
-        return $response;
-
-    }
-    public function getId()
-    {
-        $dbService = new DAOUser();
-        $requestUtil= new RequestUtil();
-        $email = $requestUtil->readParameter('email');
-        $password = $requestUtil->readParameter('pwd');
-        return  $dbService->getId($email,$password);
+        $response = $dbService->findUser($username,$email ,$password);
+        if($response!=null){
+            return $response [0];
+        }
+        return null;
 
     }
    

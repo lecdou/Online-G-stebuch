@@ -3,6 +3,7 @@ define('DB_PATH',$_SERVER["DOCUMENT_ROOT"]."/Online-G-stebuch/bd_gd.sqlite3");
 $createStmt = <<<EOF
       CREATE TABLE IF NOT EXISTS USER
       (ID INTEGER PRIMARY KEY    NOT NULL,
+      USERNAME        TEXT    NOT NULL,
       EMAIL           TEXT    NOT NULL,
       PASSWORD        TEXT    NOT NULL);
       CREATE TABLE IF NOT EXISTS BOOKENTRY
