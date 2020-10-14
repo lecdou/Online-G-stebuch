@@ -64,14 +64,16 @@
 
       <div class="row mt-3">
          
-      <table class="table table-striped">
+      <table class="table table-striped" id="TableId">
+ <thead>
     <tr> 
         <th>Ersteller</th>
         <th>Emails</th>
-        <th>Titel  <i class="fa fa-sort fa-1x" aria-hidden="false" id="t"></i></th>
+        <th>Titel  <i class="fa fa-sort fa-1x" aria-hidden="false" id="sort"></i></th>
         <th>Erstelldatum</th>
         <th>Actions</th>
     </tr>
+    </thead>
     <?php
           
                 foreach ($BOOK_ENTRIES as $value) {
@@ -108,8 +110,20 @@
       document.location.href = 'Dashboard.php'
     });
    
-    document.getElementById('t').addEventListener('click', function() {
-      document.location.href = 'eintragdetails.php';
+    $(document).ready(function(){
+          $("#sort").click(function(){
+           // window.location.href='eintragdetails.php';
+            $("#TableId").DataTable({
+              columnDefs: [
+    {
+        targets: -1,
+        className: 'dt-body-right'
+    }
+  ]
+            });
+            $("#TableId").css("display","block");
+          });
+  
     });
 
 

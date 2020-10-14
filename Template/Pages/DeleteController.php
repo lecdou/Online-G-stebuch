@@ -4,6 +4,6 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/Online-G-stebuch/Template/Services/Re
 session_start();
 
     $BookEntryService=new BookEntryService();
-    $update = $BookEntryService->deleteById();
-    echo json_encode($update);
+    $delete = $BookEntryService->deleteById();
+    echo json_encode($delete);
 ?>
