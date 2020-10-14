@@ -3,12 +3,9 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/Online-G-stebuch/Template/Services/Bo
 require_once $_SERVER["DOCUMENT_ROOT"] . "/Online-G-stebuch/Template/Services/RequestUtil.php";
 session_start();
     $BookEntryService=new BookEntryService();
-    $bookId = $BookEntryService->addBook();
-    echo $bookId;
-    if($bookId===-1){
-        
-       header("Location: login.php ");
-    }else{
-        header("Location: Dashboard.php");
-    }
+    $update = $BookEntryService->updateBook();
+    $BOOK_ENTRY=$BookEntryService->findByIdParam($update);
+    echo json_encode($BOOK_ENTRY[0]);
+
+
 ?>

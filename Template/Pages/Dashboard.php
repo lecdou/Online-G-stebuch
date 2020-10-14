@@ -68,13 +68,14 @@
     <tr> 
         <th>Ersteller</th>
         <th>Emails</th>
-        <th>Titel</th>
+        <th>Titel  <i class="fa fa-sort fa-1x" aria-hidden="false" id="t"></i></th>
         <th>Erstelldatum</th>
         <th>Actions</th>
     </tr>
     <?php
-                
+          
                 foreach ($BOOK_ENTRIES as $value) {
+                  
                   echo "<tr>";
                   echo "<td>". $value->getUsername()."</td>";
                   echo "<td>". $value->getUserEmail()."</td>";
@@ -85,7 +86,10 @@
                    <button type='submit' class='btn btn-primary'>details </button>
                   </form> </td>";
                   echo "</tr>";
+                  
                }
+               
+              
                   ?>
 
 
@@ -103,4 +107,10 @@
     btn.addEventListener('click', function() {
       document.location.href = 'Dashboard.php'
     });
+   
+    document.getElementById('t').addEventListener('click', function() {
+      document.location.href = 'eintragdetails.php';
+    });
+
+
   </script>

@@ -29,18 +29,20 @@ class BookEntryService
         return $dbService->getAll();
 
     }
-    public function findById()
-    {
-        $requestUtil=new RequestUtil();
-        $bookid=$requestUtil->readParameter('Bookid');
-
-
+    public function findByIdParam($bookid){
         if ($bookid == null) {
             return null;
         }
         $dbService = new DAOBookEntry();
 
         return $dbService->findByIdCustom($bookid);
+
+    }
+    public function findById()
+    {
+        $requestUtil=new RequestUtil();
+        $bookid=$requestUtil->readParameter('Bookid');
+        return $this->findByIdParam($bookid);
 
     }
     public function deleteById()

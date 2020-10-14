@@ -49,15 +49,15 @@ require_once '../../Template/includes/head.php' ?>;
 
       <div id="row "> 
       <?php $isSaveDisabled = false;
-       foreach ($BOOK_ENTRIES as $value) {  
-            echo " <h3> Bucheintrag : ".$value->getUsername(). " / ".date("Y-m-d H:i:s", strtotime($value->getDate()))." </h3>";
+     
+            echo " <h3> Bucheintrag : ".$BOOK_ENTRY->getUsername(). " / ".date("Y-m-d H:i:s", strtotime($BOOK_ENTRY->getDate()))." </h3>";
              
            
-            if($value->getUsername()!= $_SESSION['email']){
+            if($BOOK_ENTRY->getUsername()!= $_SESSION['email']){
               $isSaveDisabled =true;
              }
             
-             }
+             
       ?>
             <form class="form-inline row bg-secondary p-2">
 
@@ -70,45 +70,110 @@ require_once '../../Template/includes/head.php' ?>;
             </form>
       </div>    
 
-      <div id="row">
-        <form >      
+      <div class="row" id="showeEintrag">
+    
         <div class="mx-auto card shadow border-none mw-80 col-md-9" style="margin-top:40px">
           
             <div class="card-body text-center">
                 <i class="fa fa-book fa-5x" id="book"></i>
-               <?php  foreach ($BOOK_ENTRIES as $value) {  
-            echo " <h6> Subtitel : ".$value->getTitel()."</h6>";
+               <?php  
+            echo " <h6> Subtitel : <span id='bookTitel'>".$BOOK_ENTRY->getTitel()."</span></h6>";
             echo "<hr>";
-            echo  $value->getContent();
-                        
-               }
+            echo  "<p id='bookContent'>".$BOOK_ENTRY->getContent()."</p>";
                   ?>
 
             </div>
           </div>
 
-          <div class="col-md-4 mw-100 text-center"> 
-          <input type='hidden' formaction="eintragdetailsController.php" formmethode="POST" name='deleteid' value='<?php foreach ($BOOK_ENTRIES as $value) {echo  $value->getId();}?>'>
-              <button type="submit" class="btn btn-danger  col-md-4 " style="margin:30px"  <?php if ($isSaveDisabled) { echo 'disabled="disabled"';}?>  onclick="javascript: return confirm('Are you sure you want to delete it ?')"> <i style="margin-right:13px" class="fa fa-trash"></i>löschen</button>
-          
-          <input id="updateB" type='text' formaction="eintragdetailsController.php" formmethode="POST" name='updateid' value='Update'>
-          <button value='<?php foreach ($BOOK_ENTRIES as $value) {echo  $value->getId();}?>' type="text" class="btn btn-success  col-md-4" style="margin:30px" <?php if ($isSaveDisabled) { echo 'disabled="disabled"';}?> ><i style="margin-right:13px" class="fa fa-pencil"></i>bearbeiten</button>
+          <div class="col-md-12 mw-100 text-center"> 
+          <input type="hidden" value="<?php echo  $BOOK_ENTRY->getId(); ?>" name="deleteid"/>
+          <button  id="deleteEintragBtn" class="btn btn-danger  col-md-4 " style="margin:30px"  <?php if ($isSaveDisabled) { echo 'disabled="disabled"';}?> > <i style="margin-right:13px" class="fa fa-trash"></i>löschen</button>
+        
+          <button  id="editEintragBtn" class="btn btn-success  col-md-4" style="margin:30px" <?php if ($isSaveDisabled) { echo 'disabled="disabled"';}?> ><i style="margin-right:13px" class="fa fa-pencil"></i>bearbeiten</button>
         </div>
-        </form> 
       </div>
-                
-    </div>
+      
+      <div  class="row" id="updateEintragForm" >
+
+    
+                  <div class="form-group row mx-80" style="margin-left:10px"> 
+                      <div class="col-md-12  ">           
+    
+                            <label style="text-shadow: 0 0 black; font-size: 20px;" for="EintragText">Titel</label>
+                            <input id="EintragText" type="text" class="form-control col-md-8 text-left" placeholder="Titel" name="titel" value="<?php echo  $BOOK_ENTRY->getTitel(); ?>">
+                      </div>
+                  </div>
+                  <div class="form-group row mx-80" style="margin-left:10px">
+                    <div class="col-md-12 "> 
+            
+                      <label style="text-shadow: 0 0 black; font-size: 20px;" for="EintragArea">Inhalt</label>
+                      <textarea class="form-control col-md-8 text-left" name="content" type="text" id="EintragArea"  rows="10"><?php echo  $BOOK_ENTRY->getContent(); ?>
+                       </textarea> 
+            
+                     </div>
+                  </div>
+                  <input type="hidden" value="<?php echo  $BOOK_ENTRY->getId(); ?>" name="updateid"/>
+                  <button  id="saveEintragBtn"class="btn btn-success  col-md-4" style="margin:30px" <?php if ($isSaveDisabled) { echo 'disabled="disabled"';}?> ><i style="margin-right:13px" class="fa fa-pencil"></i>Speichern</button>
+    
+                  
+      </div>
 
 </main>
-   
-</body>
-<script>
+<script type="text/javascript" >
      function update() {
       document.location.href = 'Dashboard.php';
     }
-    function updateBook(){
-     var form = document.getElementById("updateB");
-     form.action = "eintragdetailsController.php";
-     form.submit;
-    }
+    $(document).ready(function(){
+      $("#updateEintragForm").css("display","none");
+      $("#editEintragBtn").click(function(){
+        $("#showeEintrag").css("display","none");
+        $("#updateEintragForm").css("display","block");
+      });
+
+    $("#saveEintragBtn").click(function(){
+            $.ajax({
+              url: "UpdateController.php",
+              type:"post",
+              data:{
+                updateid:$("input[name='updateid']").val(),
+                titel:$("input[name='titel']").val(),
+                content:$("textarea[name='content']").val()
+              },
+              dataType: 'JSON',
+              success: function(response){
+                console.log(response,response.TITEL);
+                $("#bookTitel").text(response.TITEL);
+                $("#bookContent").text(response.CONTENT);
+              }
+       
+            }).done(function( res) {
+              $("#showeEintrag").css("display","block");
+              $("#updateEintragForm").css("display","none");
+             
+          });
+
+      });
+
+
+    });
+    $("#deleteEintragBtn").click(function(){
+      if(confirm('Are you sure you want to delete it ?')){
+            $.ajax({
+              url: "DeleteController.php",
+              type:"post",
+              data:{
+                deleteid:$("input[name='deleteid']").val()
+              },
+              dataType: 'JSON',
+              success: function(response){
+                window.location.href='Dashboard.php';
+              }
+       
+            }).done(function( res) {
+            });
+       }
+      });
+    
   </script>
+</body>
+

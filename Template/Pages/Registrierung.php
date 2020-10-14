@@ -1,4 +1,4 @@
-<?php // require_once ("../../Template/Pages/RequestController.php");
+<?php 
 require_once '../../Template/includes/head.php' ?>
 <title> Registrierung Seite </title>
 
