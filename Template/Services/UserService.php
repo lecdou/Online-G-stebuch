@@ -14,10 +14,6 @@ class UserService
         if($email==NULL || $password==NULL || $password2==NULL || $username==NULL){
             return -1;
         }
-        if($password!=$password2){
-            return -2;
-        }
-        
         $dbService = new DAOUser();
         if($dbService->checkUserExist($username)){
             return 1 ;

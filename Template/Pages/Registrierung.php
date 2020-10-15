@@ -81,14 +81,7 @@ function check(){
   }
   if (val.length > 5)  
    {    
-         
-      if (val.match(/\d{1,}/) && val.match(/[a-zA-ZäöüÄÖÜ]{1,}/) && val.match(/\W/)) 
-        {   
-      call.style.color="#428c0d";               
-      call.innerHTML = "<strong>sehr sicher!</strong>";
-        }
-               
-        else if (val.match(/\d{1,}/) && val.match(/[a-zA-ZäöüÄÖÜ]{1,}/) || val.match(/\W/) && val.match(/[a-zA-ZäöüÄÖÜ]{1,}/)) 
+      if (val.match(/\d{1,}/) && val.match(/[a-zA-ZäöüÄÖÜ]{1,}/) || val.match(/\W/) && val.match(/[a-zA-ZäöüÄÖÜ]{1,}/)) 
         {   
     call.style.color="#56a40c"; 
     call.innerHTML = "<strong>sicher!</strong>";
